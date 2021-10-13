@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MenuMaker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div class="box_container">
+      <a href="/">Home</a>
+      <h1>Add A CSV Menu Below</h1>
+      <form action="/upload" enctype="multipart/form-data" method="post">
+        <div>File: <input type="file" id="myFile" name="myFile" /></div>
+        <input type="submit" value="Upload" />
+      </form>
+    </div>
+  </body>
+</html>

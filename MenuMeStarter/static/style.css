@@ -1,0 +1,75 @@
+body {
+  font-family: "Nunito", sans-serif;
+}
+.menus {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.menu_box {
+  display: block;
+  padding: 10px;
+}
+
+.menu_box {
+  position: relative;
+  height: 200px;
+  width: 200px;
+}
+.box_container {
+  width: 960px;
+  margin: auto;
+  height: 100vh;
+}
+
+.transition_box {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+
+  transition: transform 0.4s;
+  transform: perspective(1000px);
+  transform-origin: 0% 150%;
+}
+
+.transition_box .label {
+  color: white;
+  line-height: 200px;
+  text-align: center;
+  display: block;
+}
+
+#box_1 {
+  z-index: 101;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+#box_2 {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd33dNYEA9omWxotfR51_2gDv_0IewjdUacQ&usqp=CAU");
+  filter: brightness(50%);
+  background-size: cover;
+  z-index: 100;
+  border-radius: 8px;
+}
+
+.menu_box:hover #box_1 {
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(-50deg);
+}
+
+.menu_box:hover #box_2 {
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(-35deg);
+}
+
+#box_3 {
+  background-color: #222;
+  z-index: 98;
+  border-radius: 8px;
+}
+
+.menu_box:hover #box_3 {
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(-15deg);
+}

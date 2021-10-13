@@ -1,0 +1,17 @@
+{
+  "name": "assignmentfswd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "formidable": "^1.2.2",
+    "nodemon": "^2.0.13"
+  }
+}

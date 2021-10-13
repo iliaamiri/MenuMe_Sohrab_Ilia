@@ -9,6 +9,9 @@ const processUpload = (request, _) => {
     const form = formidable.IncomingForm();
     form.uploadDir = uploadFolder;
     form.parse(request, (err, _, files) => {
+      if (JSON.stringify(files) === "{}"){
+        reject("Invalid file");
+      }
       if (err) {
         reject(err);
       } else {

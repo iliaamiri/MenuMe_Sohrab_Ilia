@@ -4,8 +4,19 @@ const {showMenuDashboard} = require("./showMenuDashboard");
 const {showMenu} = require("./showMenu");
 const {fileProcessor} = require("./processors");
 
+const getUrlWithoutQueryString = (url) => {
+    url = url.split("?")[0];
+
+    if (url.charAt(url.length - 1) === "/"){
+        url = url.substr(0, url.length - 1);
+    }
+
+    return url;
+}
+
 const server = http.createServer((request, response) => {
-    switch (request.url) {
+    let url = getUrlWithoutQueryString(request.url);
+    switch (url) {
         case "/upload":
             uploadData(request, response)
                 .then((csvName) => console.log(csvName))

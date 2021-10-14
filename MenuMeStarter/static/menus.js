@@ -20,4 +20,3 @@ $.post( "/menus/getMenu", {menuId: menuParam},function( data ) {
         window.location.href = "./404";
     }
 });
-

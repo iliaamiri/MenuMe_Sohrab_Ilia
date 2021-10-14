@@ -11,8 +11,7 @@ const processUpload = (request, _) => {
     form.parse(request, (err, _, files) => {
       if (JSON.stringify(files) === "{}"){
         reject("Invalid file");
-      }
-      if (err) {
+      } else if (err) {
         reject(err);
       } else {
         const file = files.myFile.path;

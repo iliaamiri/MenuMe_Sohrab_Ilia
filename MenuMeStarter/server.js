@@ -2,12 +2,13 @@ const http = require("http");
 const {uploadData} = require("./uploadLogic");
 const {showMenuDashboard} = require("./showMenuDashboard");
 const {showMenu} = require("./showMenu");
+const {getMenu} = require("./getMenu");
 const {fileProcessor} = require("./processors");
 
 const getUrlWithoutQueryString = (url) => {
     url = url.split("?")[0];
 
-    if (url.charAt(url.length - 1) === "/"){
+    if (url.charAt(url.length - 1) === "/") {
         url = url.substr(0, url.length - 1);
     }
 
@@ -24,7 +25,10 @@ const server = http.createServer((request, response) => {
                     response.writeHead(301, {Location: "/"});
                     response.end();
                 })
-                .catch((err) => console.log(err));
+                .catch((err) => {
+                    console.log(err);
+                    fileProcessor(request, response); // added to handle the error (acting like it doesn't exist)
+                });
             break;
         case "/menuDashboard.html":
             showMenuDashboard(request, response);
@@ -41,7 +45,10 @@ const server = http.createServer((request, response) => {
         * Description: Allowing a route for handling AJAX requests
         * */
         case "/menus/getMenu":
-            getMenu(request, response) // TODO
+            getMenu(request, response)
+                .catch((err) => {
+                    response.end("invalid")
+                })
             break;
         default:
             fileProcessor(request, response);

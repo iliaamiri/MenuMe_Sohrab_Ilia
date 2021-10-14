@@ -1,3 +1,8 @@
+/*
+* Added by Ilia.
+* This module handles the process of resolving the menus dynamically, getting menuId as a parameter in the url.
+*
+* */
 const qs = require('querystring');
 const fs = require("fs");
 const path = require("path");

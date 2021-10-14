@@ -10,12 +10,12 @@ if (menuParam === null){
     window.location.href = "./404";
 }
 
-$.post( "menus/getMenu", {menuId: menuParam},function( data ) {
+$.post( "/menus/getMenu", {menuId: menuParam},function( data ) {
     if(data != null){
         if (data === "invalid"){
             window.location.href = "./404";
         }
-        document.getElementById("#menu").innerHTML = data;
+        document.getElementById("menu").innerHTML = data;
     } else {
         window.location.href = "./404";
     }

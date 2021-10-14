@@ -42,6 +42,9 @@ const server = http.createServer((request, response) => {
             getMenusList(request, response)
                 .then(result => {
                     response.end(JSON.stringify(result))
+                })
+                .catch(err => {
+                    response.end(JSON.stringify(err))
                 });
             break;
         /*

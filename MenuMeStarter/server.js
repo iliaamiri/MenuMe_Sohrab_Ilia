@@ -3,6 +3,7 @@ const {uploadData} = require("./uploadLogic");
 const {showMenuDashboard} = require("./showMenuDashboard");
 const {showMenu} = require("./showMenu");
 const {getMenu} = require("./getMenu");
+const {getMenusList} = require("./getMenusList");
 const {fileProcessor} = require("./processors");
 
 const getUrlWithoutQueryString = (url) => {
@@ -32,6 +33,16 @@ const server = http.createServer((request, response) => {
             break;
         case "/menuDashboard.html":
             showMenuDashboard(request, response);
+            break;
+        /*
+        * Added by Ilia.
+        * Description: Presenting the list of menus (using AJAX)
+        * */
+        case "/menus/getMenusList":
+            getMenusList(request, response)
+                .then(result => {
+                    response.end(JSON.stringify(result))
+                });
             break;
         /*
         * Added by Ilia.
